@@ -1,23 +1,20 @@
 import openai
-import streamlit as st
 
-openai.api_key = "your_api_key"
+openai.api_key = "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"
 
 
-def BasicGeneration(userprompt):
+def BasicGeneration(userPrompt):
     completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messsages=[
-        {"role": "user", "content": userprompt}]
+        {"role": "user", "content": userPrompt}]
     )
     return completion.choices[0].message.content
 
-st.title("Professional Prompt Generator")
-st.subheader("Turn short prompts into highly detailed and straight to the point")
 
-prompt = "Your_prompt_here"
+userPrompt ="explain reinforcement learning"
 
 
-response = BasicGeneration(prompt)
+response = BasicGeneration(userprompt)
 
-
+print(response)
